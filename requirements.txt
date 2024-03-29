@@ -1,0 +1,9 @@
+fastapi[all]
+sqlalchemy
+asyncpg
+typing
+python-dotenv
+alembic
+fastapi-cache2[redis]
+celery
+flower
