@@ -4,10 +4,12 @@ from app.config import SMTP_HOST, SMTP_PASS, SMTP_PORT, SMTP_USER, EMAIL_TO
 import smtplib
 
 
-"""@celery.tasks
-def mail(data: dict): #Доделать и сделать адекватную аннотацию
-    msg_content= create_invite_message(data)
+@celery.task
+def send_invite(name: str, number: str):
+    #print(SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_TO)
+    #print(type(SMTP_HOST), type(SMTP_PORT), type(SMTP_USER), type(SMTP_PASS), type(EMAIL_TO))
+    msg_content = create_invite_message(name, number)
     with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as server:
+        server.connect(SMTP_HOST, SMTP_PORT)
         server.login(SMTP_USER, SMTP_PASS)
-        server.send_message(msg_content)
-"""
+        server.sendmail(SMTP_USER, EMAIL_TO, msg_content.as_string())

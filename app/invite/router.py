@@ -2,7 +2,7 @@ import shutil
 from fastapi import UploadFile
 from fastapi import APIRouter
 
-#from app.tasks.tasks import mail
+from app.tasks.tasks import send_invite
 
 
 
@@ -14,8 +14,7 @@ router = APIRouter(
 
 @router.post("")
 async def send_form(name: str, number: str, file: UploadFile):
-    with open(f"app/static/{name}.webp", "wb+") as image:
+    with open(f"app/static/{number}.png", "wb+") as image:
         shutil.copyfileobj(file.file, image)
-    invite_data = {"name": name, "number": number, "file": 12}
-    #mail.delay(invite_data)
+    send_invite.delay(name, number)
 
