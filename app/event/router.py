@@ -1,5 +1,5 @@
 from app.event.service import EventsService
-from app.event.schemas import SEvents
+from app.event.schemas import SEvents, SEvent
 from fastapi import APIRouter
 from fastapi_cache.decorator import cache
 
@@ -10,7 +10,7 @@ router = APIRouter(
 )
 
 
-@router.get("/")
+@router.get("")
 @cache(expire=60)
 async def get_events() -> list[SEvents]:
     result = await EventsService.get_all()
@@ -19,6 +19,6 @@ async def get_events() -> list[SEvents]:
 
 
 @router.get("/{id}")
-async def get_event(id: int) -> SEvents:
+async def get_event(id: int) -> SEvent:
     result = await EventsService.get_one_by_id(id)
     return result
