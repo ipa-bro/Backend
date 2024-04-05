@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 
 class SMembers(BaseModel):
-     id: int
      photo: str
      fullname: str
      position: str
