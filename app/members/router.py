@@ -18,7 +18,7 @@ async def get_members() -> list[SMembers]:
 
 
 @router.get("/{id}")
-async def get_members(id: int) -> SMembers:
+async def get_member(id: int) -> SMembers:
     result = await MembersService.get_one_by_id(id)
     return result
 
