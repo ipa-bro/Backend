@@ -7,6 +7,6 @@ class Members(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     photo = Column(String, nullable=False)
     fullname = Column(String, nullable=False)
-    type = Column(String, nullable=False)
+    position = Column(String, nullable=False)
     date_of_birthday = Column(String, nullable=False)
-    text = Column(String, nullable=False)
+    

@@ -10,7 +10,7 @@ router = APIRouter(
 )
 
 
-@router.get("/")
+@router.get("")
 @cache(expire=60)
 async def get_events() -> list[SEvents]:
     result = await EventsService.get_all()

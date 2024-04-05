@@ -3,7 +3,14 @@ from sqlalchemy import select
 
 
 class BaseService:
+    """
+    Базовый класс, который хранит 
+    в себе методы: взять все записи 
+    или взять запись по айди, далее при 
+    наследовании подставляется модель
+    """
     model = None
+
 
     @classmethod
     async def get_one_by_id(cls, model_id: int):
@@ -11,6 +18,7 @@ class BaseService:
             query = select(cls.model).filter_by(id=model_id) 
             result = await session.execute(query)
             return result.scalar_one_or_none()
+
 
     @classmethod
     async def get_all(cls, **filter_by):

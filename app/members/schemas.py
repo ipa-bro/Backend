@@ -6,9 +6,8 @@ class SMembers(BaseModel):
      id: int
      photo: str
      fullname: str
-     type: str
+     position: str
      date_of_birthday: str #date
-     text: str
 
      class Config:
         from_attributes = True
