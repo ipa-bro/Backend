@@ -6,8 +6,6 @@ import smtplib
 
 @celery.task
 def send_invite(name: str, number: str):
-    #print(SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_TO)
-    #print(type(SMTP_HOST), type(SMTP_PORT), type(SMTP_USER), type(SMTP_PASS), type(EMAIL_TO))
     msg_content = create_invite_message(name, number)
     with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as server:
         server.connect(SMTP_HOST, SMTP_PORT)

@@ -1,9 +1,7 @@
+from app.tasks.tasks import send_invite
 import shutil
 from fastapi import UploadFile
 from fastapi import APIRouter
-
-from app.tasks.tasks import send_invite
-
 
 
 router = APIRouter(

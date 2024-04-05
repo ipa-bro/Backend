@@ -1,8 +1,8 @@
+from app.config import SMTP_USER, EMAIL_TO
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
-from app.config import SMTP_USER, EMAIL_TO
 
 
 def create_invite_message(name, number):
@@ -14,14 +14,11 @@ def create_invite_message(name, number):
             </br>
             Номер: {number}
         """, "html"))
-
     file_path = f"app/static/{number}.png"
     with open(file_path, "rb") as file:
         part = MIMEBase('application', 'octet-stream')
         part.set_payload(file.read())
         encoders.encode_base64(part)
         part.add_header('Content-Disposition', f"attachment; filename={file_path}")
-
     msg.attach(part)
-
     return msg

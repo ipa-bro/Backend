@@ -1,5 +1,5 @@
 from app.service.base import BaseService
-from app.event.models import Events
+from app.events.models import Events
 
 
 class EventsService(BaseService):

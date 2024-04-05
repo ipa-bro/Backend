@@ -1,5 +1,5 @@
 from app.config import URL, REDIS_URL
-from app.event.router import router as router_events
+from app.events.router import router as router_events
 from app.members.router import router as router_members
 from app.invite.router import router as router_invite
 from fastapi import FastAPI
@@ -17,6 +17,7 @@ app.mount("/static", StaticFiles(directory="app/static"))
 app.include_router(router_events)
 app.include_router(router_members)
 app.include_router(router_invite)
+
 
 app.add_middleware(
     CORSMiddleware,

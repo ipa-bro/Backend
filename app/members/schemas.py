@@ -8,6 +8,7 @@ class SMembers(BaseModel):
      position: str
      date_of_birthday: str #date
 
+
      class Config:
         from_attributes = True
 
