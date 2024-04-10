@@ -1,9 +1,13 @@
-fastapi[all]
-sqlalchemy
-asyncpg
+flake8
 typing
 python-dotenv
-alembic
+fastapi[all]
 fastapi-cache2[redis]
+fastapi_storages
+asyncpg
+sqlalchemy
+sqladmin
+alembic
 celery
 flower
+

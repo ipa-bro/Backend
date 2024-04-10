@@ -2,13 +2,15 @@ from app.config import URL, REDIS_URL
 from app.events.router import router as router_events
 from app.members.router import router as router_members
 from app.invite.router import router as router_invite
+from app.database import engine
+from app.admin.views import EventsAdmin, MembersAdmin
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
-from fastapi_cache.decorator import cache
 from fastapi.staticfiles import StaticFiles
 from redis import asyncio as aioredis
+from sqladmin import Admin
 
 
 origins = [URL]
@@ -35,3 +37,12 @@ app.add_middleware(
 def startup():
     redis = aioredis.from_url(REDIS_URL)
     FastAPICache.init(RedisBackend(redis), prefix="cache")
+
+
+
+admin = Admin(app, engine)
+
+
+admin.add_view(MembersAdmin)
+admin.add_view(EventsAdmin)
+
