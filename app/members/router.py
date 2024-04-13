@@ -1,8 +1,8 @@
-from app.members.service import MembersService
-from app.members.schemas import SMembers
 from fastapi import APIRouter
 from fastapi_cache.decorator import cache
 
+from app.members.schemas import SMembers
+from app.members.service import MembersService
 
 router = APIRouter(
     prefix="/members",

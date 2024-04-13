@@ -1,6 +1,7 @@
+from sqladmin import ModelView
+
 from app.events.models import Events
 from app.members.models import Members
-from sqladmin import ModelView
 
 
 class EventsAdmin(ModelView, model=Events):

@@ -1,8 +1,10 @@
-from app.events.service import EventsService
-from app.events.schemas import SEvents, SEvent
 from fastapi import APIRouter
+from fastapi.exceptions import ResponseValidationError
 from fastapi_cache.decorator import cache
 
+from app.events.schemas import SEvent, SEvents
+from app.events.service import EventsService
+from app.logger import logger
 
 router = APIRouter(
     prefix="/event",
@@ -19,5 +21,9 @@ async def get_events() -> list[SEvents]:
 
 @router.get("/{id}")
 async def get_event(id: int) -> SEvent:
-    result = await EventsService.get_one_by_id(id)
-    return result
+    try:
+        result = await EventsService.get_one_by_id(id)
+        return result
+    except ResponseValidationError:
+        logger.error("Ошибка валидации")
+        

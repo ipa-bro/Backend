@@ -1,6 +1,7 @@
-from app.database import Base, storage
-from sqlalchemy import Column, Integer, String
 from fastapi_storages.integrations.sqlalchemy import FileType
+from sqlalchemy import Column, Integer, String
+
+from app.database import Base, storage
 
 
 class Members(Base):

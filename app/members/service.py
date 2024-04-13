@@ -1,5 +1,5 @@
-from app.service.base import BaseService
 from app.members.models import Members
+from app.service.base import BaseService
 
 
 class MembersService(BaseService):

@@ -1,7 +1,8 @@
+import smtplib
+
+from app.config import EMAIL_TO, SMTP_HOST, SMTP_PASS, SMTP_PORT, SMTP_USER
 from app.tasks.celery import celery
 from app.tasks.email_templates import create_invite_message
-from app.config import SMTP_HOST, SMTP_PASS, SMTP_PORT, SMTP_USER, EMAIL_TO
-import smtplib
 
 
 @celery.task

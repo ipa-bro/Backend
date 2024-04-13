@@ -1,6 +1,9 @@
 flake8
+black
+isort
 typing
 python-dotenv
+python-json-logger
 fastapi[all]
 fastapi-cache2[redis]
 fastapi_storages
@@ -10,4 +13,6 @@ sqladmin
 alembic
 celery
 flower
+sentry-sdk[fastapi]
+gunicorn
 
