@@ -12,6 +12,7 @@ from app.config import DB_URL
 from app.database import Base
 from app.events.models import Events # noqa
 from app.members.models import Members # noqa
+from app.auth.models import Users # noqa
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

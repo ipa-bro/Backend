@@ -9,7 +9,7 @@ from app.logger import logger
 engine = create_async_engine(DB_URL)
 async_session_maker = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 logger.info(async_session_maker.configure)
-storage = FileSystemStorage(path="service/static")
+storage = FileSystemStorage(path="static")
 
 
 class Base(DeclarativeBase):

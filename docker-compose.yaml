@@ -6,8 +6,9 @@ services:
     restart: always
     env_file:
       - .env-non-dev
+    command: ["-p 5432"]
     ports:
-      - 5431:5431
+      - 5431:5432
 
   redis:
     image: redis:7
@@ -27,7 +28,7 @@ services:
     depends_on:
       - db
       - redis
-    command: ["/service/docker/app.sh"]
+    command: ["/api/docker/app.sh"]
     ports:
       - 8000:8000
     
@@ -37,7 +38,7 @@ services:
     container_name: celery_app
     env_file:
       - .env-non-dev
-    command: ["/service/docker/celery.sh", "celery"]
+    command: ["/api/docker/celery.sh", "celery"]
     depends_on:
       - redis
 
@@ -47,7 +48,7 @@ services:
     container_name: flower_app
     env_file:
       - .env-non-dev
-    command: ["/service/docker/celery.sh", "flower"]
+    command: ["/api/docker/celery.sh", "flower"]
     depends_on:
       - redis
       - celery

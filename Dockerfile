@@ -1,12 +1,12 @@
 FROM python:3.10
 
-COPY requirements.txt /service/requirements.txt
+COPY requirements.txt /api/requirements.txt
 
-WORKDIR /service
+WORKDIR /api
 
-RUN pip install --upgrade pip && pip install -r requirements.txt && mkdir static
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
 
-RUN chmod a+x /service/docker/*.sh
+RUN chmod a+x /api/docker/*.sh
 

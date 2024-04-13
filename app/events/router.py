@@ -21,9 +21,7 @@ async def get_events() -> list[SEvents]:
 
 @router.get("/{id}")
 async def get_event(id: int) -> SEvent:
-    try:
-        result = await EventsService.get_one_by_id(id)
-        return result
-    except ResponseValidationError:
-        logger.error("Ошибка валидации")
+    result = await EventsService.get_one_by_id(id)
+    return result
+   
         
