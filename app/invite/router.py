@@ -12,8 +12,8 @@ router = APIRouter(
 
 @router.post("")
 async def send_form(name: str, number: str, file: UploadFile):
-    with open(f"static/{number}.png", "wb+") as image:
-            shutil.copyfileobj(file.file, image)
+    with open(f"static/{number}.pdf", "wb+") as pdf:
+            shutil.copyfileobj(file.file, pdf)
             send_invite.delay(name, number)
   
     

@@ -16,7 +16,7 @@ def create_invite_message(name, number):
             </br>
             Номер: {number}
         """, "html"))
-    file_path = f"static/{number}.png"
+    file_path = f"static/{number}.pdf"
     with open(file_path, "rb") as file:
         part = MIMEBase('application', 'octet-stream')
         part.set_payload(file.read())

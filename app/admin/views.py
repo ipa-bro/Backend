@@ -1,7 +1,6 @@
 from sqladmin import ModelView
 
 from app.events.models import Events
-from app.members.models import Members
 
 
 class EventsAdmin(ModelView, model=Events):
@@ -11,8 +10,3 @@ class EventsAdmin(ModelView, model=Events):
     icon = "fa-solid fa-location-dot"
 
 
-class MembersAdmin(ModelView, model=Members):
-    column_list = [c.name for c in Members.__table__.c]
-    name = "Участник"
-    name_plural = "Участники"
-    icon = "fa-solid fa-user"

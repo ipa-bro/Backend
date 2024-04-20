@@ -9,7 +9,7 @@ from fastapi_cache.backends.redis import RedisBackend
 from redis import asyncio as aioredis
 from sqladmin import Admin
 
-from app.admin.views import EventsAdmin, MembersAdmin
+from app.admin.views import EventsAdmin
 from app.config import REDIS_URL, URL
 from app.database import engine
 from app.events.router import router as router_events
@@ -45,7 +45,6 @@ def startup():
 
 
 admin = Admin(app, engine)
-admin.add_view(MembersAdmin)
 admin.add_view(EventsAdmin)
 
 
