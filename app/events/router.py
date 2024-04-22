@@ -1,13 +1,11 @@
 from fastapi import APIRouter
-from fastapi.exceptions import ResponseValidationError
 from fastapi_cache.decorator import cache
 
 from app.events.schemas import SEvent, SEvents
 from app.events.service import EventsService
-from app.logger import logger
 
 router = APIRouter(
-    prefix="/event",
+    prefix="/events",
     tags=["События"]
 )
 

@@ -33,3 +33,10 @@ SMTP_PASS = os.getenv('SMTP_PASS')
 
 MODE = os.getenv('MODE')
 LOG_LEVEL = os.getenv('LOG_LEVEL')
+
+
+USERNAME = os.getenv('USERNAME')
+PASSWORD = os.getenv('PASSWORD')
+
+
+SECRET_KEY = os.getenv('SECRET_KEY')

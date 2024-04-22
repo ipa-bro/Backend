@@ -3,6 +3,7 @@ black
 isort
 typing
 python-dotenv
+itsdangerous
 python-json-logger
 fastapi[all]
 fastapi-cache2[redis]

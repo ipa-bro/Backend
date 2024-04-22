@@ -10,6 +10,7 @@ from redis import asyncio as aioredis
 from sqladmin import Admin
 
 from app.admin.views import EventsAdmin
+from app.admin.auth import authentication_backend
 from app.config import REDIS_URL, URL
 from app.database import engine
 from app.events.router import router as router_events
@@ -44,7 +45,7 @@ def startup():
     FastAPICache.init(RedisBackend(redis), prefix="cache")
 
 
-admin = Admin(app, engine)
+admin = Admin(app, engine, authentication_backend=authentication_backend)
 admin.add_view(EventsAdmin)
 
 
