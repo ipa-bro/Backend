@@ -11,7 +11,7 @@ from sqladmin import Admin
 
 from app.admin.views import EventsAdmin
 from app.admin.auth import authentication_backend
-from app.config import REDIS_URL, URL
+from app.config import REDIS_URL, URL, DSN
 from app.database import engine
 from app.events.router import router as router_events
 from app.invite.router import router as router_invite
@@ -59,7 +59,7 @@ async def add_process_time_header(request: Request, call_next):
 
 
 sentry_sdk.init(
-    dsn="https://975d74878cf39016c6af64d0380ecc93@o4507064479318016.ingest.us.sentry.io/4507064481873920",
+    dsn=DSN,
     traces_sample_rate=1.0,
     profiles_sample_rate=1.0,
 )
