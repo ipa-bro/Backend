@@ -14,7 +14,7 @@ POSTGRES_PORT = os.getenv('POSTGRES_PORT')
 DB_URL = f"postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}/{POSTGRES_DB}"
 
 
-URL = "http://localhost:3000"
+URL = "http://localhost:5173"
 
 
 REDIS_HOST = os.getenv('REDIS_HOST')

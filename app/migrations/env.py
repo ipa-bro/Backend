@@ -11,7 +11,6 @@ sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 from app.config import DB_URL
 from app.database import Base
 from app.events.models import Events # noqa
-from app.members.models import Members # noqa
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

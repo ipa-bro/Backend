@@ -15,7 +15,6 @@ from app.config import REDIS_URL, URL
 from app.database import engine
 from app.events.router import router as router_events
 from app.invite.router import router as router_invite
-from app.members.router import router as router_members
 from app.logger import logger
 
 
@@ -23,7 +22,6 @@ origins = [URL]
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"))
 app.include_router(router_events)
-app.include_router(router_members)
 app.include_router(router_invite)
 
 

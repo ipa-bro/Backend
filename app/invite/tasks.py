@@ -1,11 +1,9 @@
 import smtplib
 
 from app.config import EMAIL_TO, SMTP_HOST, SMTP_PASS, SMTP_PORT, SMTP_USER
-from app.tasks.celery import celery
-from app.tasks.email_templates import create_invite_message
+from app.invite.email_templates import create_invite_message
 
 
-@celery.task
 def send_invite(name: str, number: str):
     msg_content = create_invite_message(name, number)
     with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as server:

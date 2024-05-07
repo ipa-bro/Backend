@@ -5,6 +5,7 @@ typing
 python-dotenv
 itsdangerous
 python-json-logger
+pytest
 fastapi[all]
 fastapi-cache2[redis]
 fastapi_storages
@@ -12,8 +13,6 @@ asyncpg
 sqlalchemy
 sqladmin
 alembic
-celery
-flower
 sentry-sdk[fastapi]
 gunicorn
 
