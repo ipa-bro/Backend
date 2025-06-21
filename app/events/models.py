@@ -1,6 +1,5 @@
 from fastapi_storages.integrations.sqlalchemy import FileType
-from sqlalchemy import Column, Integer, String
-
+from sqlalchemy import Column, Integer, String, Date 
 from app.database import Base, storage
 
 
@@ -11,3 +10,5 @@ class Events(Base):
     title = Column(String, nullable=False)
     description = Column(String, nullable=False)
     fullDescription = Column(String, nullable=False)
+    date = Column(Date, nullable=False) 
+    location = Column(String, nullable=False)

@@ -7,12 +7,10 @@ itsdangerous
 python-json-logger
 pytest
 fastapi[all]
-fastapi-cache2[redis]
 fastapi_storages
 asyncpg
 sqlalchemy
 sqladmin
 alembic
-sentry-sdk[fastapi]
 gunicorn
 

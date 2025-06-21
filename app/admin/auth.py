@@ -45,5 +45,6 @@ def validate_credentials(username: str, password: str) -> bool:
         return False
 
 
+
 authentication_backend = AdminAuth(secret_key=SECRET_KEY)
 
